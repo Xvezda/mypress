@@ -2,28 +2,30 @@ const { withHigherPriority } = require("./queue.js");
 const { chainGet } = require("./helpers.js");
 
 function its(subject, props) {
+  console.log('its', subject, props);
   return Promise.resolve(chainGet(subject, props));
 }
 
 function invoke(subject, name, ...args) {
+  console.log('invoke', subject, name, args);
   return Promise.resolve(subject[name](...args));
 }
 
 function should(subject, props, value) {
-  console.log("should command invoked:", subject, props, value);
+  console.log("should", subject, props, value);
   return Promise.resolve(subject);
 }
 
 function then(subject, callback) {
-  withHigherPriority(callback);
-
-  //console.log('commandQueue in then:', commandQueue);
-  //console.log('and the subject:', subject);
+  console.log('then', subject, callback);
+  withHigherPriority(() => {
+    callback(subject);
+  });
   return Promise.resolve(subject);
 }
 
 function wrap(value) {
-  console.log("wrap command invoked:", value);
+  console.log("wrap", value);
   if (typeof value === "object" && "then" in value) {
     return value;
   }
