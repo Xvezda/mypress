@@ -92,7 +92,8 @@ function then(subject, callback) {
 	return Promise.resolve(subject);
 }
 
+const { chainGet } = require('./helpers.js');
 function its(subject, props) {
-	return Promise.resolve(subject[props]);
+	return Promise.resolve(chainGet(subject, props));
 }
 
