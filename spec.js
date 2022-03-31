@@ -1,3 +1,6 @@
+const chainGet = (obj, chain) =>
+	chain.split('.').reduce((obj, prop) => obj[prop], obj);
+
 let priority = 0;
 const withHigherPriority = context => {
 	++priority;
