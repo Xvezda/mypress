@@ -1,0 +1,9 @@
+{
+  "name": "cypress-study",
+  "version": "0.0.0",
+  "main": "runner.js",
+  "repository": "git@github.com:Xvezda/cypress-study.git",
+  "author": "Xvezda <xvezda@naver.com>",
+  "license": "MIT",
+  "private": true
+}
