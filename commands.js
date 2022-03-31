@@ -2,12 +2,12 @@ const { withHigherPriority } = require("./queue.js");
 const { chainGet } = require("./helpers.js");
 
 function its(subject, props) {
-  console.log('its', subject, props);
+  console.log("its", subject, props);
   return Promise.resolve(chainGet(subject, props));
 }
 
 function invoke(subject, name, ...args) {
-  console.log('invoke', subject, name, args);
+  console.log("invoke", subject, name, args);
   return Promise.resolve(subject[name](...args));
 }
 
@@ -17,7 +17,7 @@ function should(subject, props, value) {
 }
 
 function then(subject, callback) {
-  console.log('then', subject, callback);
+  console.log("then", subject, callback);
   return new Promise((resolve) => {
     withHigherPriority(() => {
       const result = callback(subject);
