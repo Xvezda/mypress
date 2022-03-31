@@ -5,7 +5,7 @@ const withHigherPriority = (context) => {
   }
   ++priority;
   context();
-  // --priority;
+  queueMicrotask(() => --priority);
 };
 
 class PriorityQueue {
