@@ -5,5 +5,8 @@
   "repository": "git@github.com:Xvezda/cypress-study.git",
   "author": "Xvezda <xvezda@naver.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "node ./runner.js"
+  }
 }
