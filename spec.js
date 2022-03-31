@@ -1,7 +1,7 @@
 cy.wrap('something')
   .should('equal', 'something')
   .then(() => {
-    cy.wrap({hello: 'world'}).its('hello').should('equal', 'world');
+    cy.wrap({foo: {bar: 'baz'}}).its('foo.bar').should('equal', 'baz');
   });
 
 const delayed = new Promise(resolve => {
