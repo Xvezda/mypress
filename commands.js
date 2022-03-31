@@ -18,10 +18,16 @@ function should(subject, props, value) {
 
 function then(subject, callback) {
   console.log('then', subject, callback);
-  withHigherPriority(() => {
-    callback(subject);
+  return new Promise((resolve) => {
+    withHigherPriority(() => {
+      const result = callback(subject);
+      if (typeof result === "undefined") {
+        resolve(subject);
+      } else {
+        resolve(result);
+      }
+    });
   });
-  return Promise.resolve(subject);
 }
 
 function wrap(value) {
